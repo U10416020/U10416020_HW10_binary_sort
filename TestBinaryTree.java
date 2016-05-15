@@ -33,7 +33,7 @@ public class TestBinaryTree {
         BinaryTree test = new BinaryTree(number);
         
         //Call the method to output the numbers after binary sort
-        System.out.println("\nAfter binary sort: ");
-        test.inorder();
+        System.out.println("\nAfter binary sort:\n" + test.toString());
+        
     }
 }
