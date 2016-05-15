@@ -5,6 +5,7 @@ public class BinaryTree<E extends Comparable<E>> {
     //Data fields
     protected TreeNode<E> root;
     protected int size=0;
+    protected String result = "";
     
     //Default binary tree constructor
     public BinaryTree(){        
@@ -44,21 +45,22 @@ public class BinaryTree<E extends Comparable<E>> {
             }
         }
         size++;        
-    }
+    }    
     
-    //Output the result
-    public void inorder(){
-        inorder(root);
-    }
-    
-    //Output the result
+    //Set the result
     protected void inorder(TreeNode<E> root){
         if(root!=null){
             inorder(root.small);
-            System.out.print(root.element+" ");
+            result += root.element+" ";            
             inorder(root.big);
         }
-    }    
+    }
+    
+    //Return the result
+    public String toString(){
+        inorder(root);        
+        return result;
+    }
     
     //Inner class named TreeNode
     public static class TreeNode<E extends Comparable<E>>{
