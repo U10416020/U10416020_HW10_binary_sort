@@ -2,18 +2,23 @@
 package binarytree;
 
 public class BinaryTree<E extends Comparable<E>> {
+    //Data fields
     protected TreeNode<E> root;
     protected int size=0;
     
+    //Default binary tree constructor
     public BinaryTree(){        
     }
     
+    //Constructor to add numbers to tree nodes
     public BinaryTree(E[] objects){
         for(int i = 0; i<objects.length;i++){
+            //Call insert method to add numbers to tree nodes
             insert(objects[i]);
         }
     }
     
+    //Method to add numbers to tree nodes
     public void insert(E e){
         if(root==null){
             root = new TreeNode(e);
@@ -41,10 +46,12 @@ public class BinaryTree<E extends Comparable<E>> {
         size++;        
     }
     
+    //Output the result
     public void inorder(){
         inorder(root);
     }
     
+    //Output the result
     protected void inorder(TreeNode<E> root){
         if(root!=null){
             inorder(root.small);
@@ -52,12 +59,15 @@ public class BinaryTree<E extends Comparable<E>> {
             inorder(root.big);
         }
     }    
-        
+    
+    //Inner class named TreeNode
     public static class TreeNode<E extends Comparable<E>>{
+        //Data fields
         protected E element;
         protected TreeNode<E> small;
         protected TreeNode<E> big;
         
+        //Constructor
         public TreeNode(E e){
             element = e;
         }
